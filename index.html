@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body{
+		 background-image: url(https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80);
+		 background-repeat: no-repeat;
+		 background-attachment: fixed;
+		
+		 background-size:100%,100% ;
+		 background-color: black;
+
+
+		}
+		
+
+
+		
+
+	</style>
+	
+	
+	
+	<script type="text/javascript">
+		
+		
+		function print(){
+			var save=document.getElementById("save").value
+			console.log("save")
+			fetch("http://localhost:4000/newData",{
+				method:"POST",
+				headers:{
+					"Content-Type":"application/json"
+				},
+				body:JSON.stringify({name:"bala",password:2002})
+			})
+		}
+		
+
+	</script>
+</head>
+<body>
+		
+
+<input id="save" type="text" placeholder="entername">
+<button onclick="print()">Submit</button>
+</body>
+</html>
