@@ -6,15 +6,37 @@
 	<title></title>
 	<style type="text/css">
 		body{
-		 background-image: url(https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80);
+		 background-image: url(https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-56228.jpg?w=996&t=st=1669350090~exp=1669350690~hmac=fc8b716d37f43ef2e2e7f11236f83af5dddaf400e9971623fbb949b21eb201f1);
 		 background-repeat: no-repeat;
 		 background-attachment: fixed;
 		
-		 background-size:100%,100% ;
+		 background-size:cover ;
 		 background-color: black;
 
 
 		}
+		
+		#boss{
+			margin-top: 15%;
+			margin-left: 40%;
+		}
+		#top{
+			font-size: 2.5rem;
+			color: black;
+		}
+		#select{
+			padding: 1%;
+		}
+		#save{
+			padding: 1%;
+		}
+		#print{
+			padding: 1%;
+		}
+		#boty{
+			padding: 1%;
+		}
+
 		
 
 
@@ -29,13 +51,28 @@
 		
 		function print(){
 			var save=document.getElementById("save").value
-			console.log("save")
+			var print=document.getElementById("print").value
+			var select=document.getElementById("select").value
+			var gmale=document.getElementById("gmale").checked
+			var gfemale=document.getElementById("gfemale").checked
+
+
+
+
+			console.log(save)
+			console.log(print)
+			console.log(select)
+			console.log(gmale,gfemale)
+			if(gmale==true)var gender="male"
+				else var gender="female"
+
+
 			fetch("http://localhost:4000/newData",{
 				method:"POST",
 				headers:{
 					"Content-Type":"application/json"
 				},
-				body:JSON.stringify({name:"bala",password:2002})
+				body:JSON.stringify({name:save,password:print,course:select,gender:gender})
 			})
 		}
 		
@@ -43,9 +80,29 @@
 	</script>
 </head>
 <body>
+	<section id="boss">
+		<div>
+		<p id="top">Registration Page</p>
 		
 
-<input id="save" type="text" placeholder="entername">
-<button onclick="print()">Submit</button>
+<p><input id="save" type="text" placeholder="enter name"></p>
+<p><input id="print" type="text" placeholder="enter password"></p>
+<select id="select">
+
+		<option>select course</option>
+
+	<option>MPCS</option>
+	<option>BCA</option>
+	<option>MSCS</option>
+	<option>BCOM</option>
+	<option>BBA</option>
+	</select>
+
+	<p><input id="gmale" type="radio" name="gender">Male
+	<input id="gfemale" type="radio" name="gender">Female</p>
+</div>
+
+<button id="boty" onclick="print()">Submit</button>
+</section>
 </body>
 </html>
